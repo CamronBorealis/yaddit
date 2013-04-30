@@ -1,14 +1,19 @@
 require_relative '../../entities/message'
 
 describe Message do
+  
+  describe '.populate' do
+    it 'should populate with valid input'
 
-	it 'should succeed with valid properties' do
-		message = Message.new
-		message.title = "This is a valid title"
-	end
+    it 'should raise an error with invalid input'
 
-	it 'should raise error with empty title' do
-		message = Message.new
-		expect{message.title = ""}.to raise_error(Exception)
-	end
+  end
+    
+  describe '.to_hash' do
+    it 'should to_hash with valid input'
+
+    it 'should raise an error with invalid input'
+
+  end
+    
 end

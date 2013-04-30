@@ -1,7 +1,15 @@
-require 'validation'
-
 class Message
-	include Validation
-
-	attr_validator :title, NOT("")
+  
+  def self.shape
+    {}
+  end
+  
+  def populate input
+    nil
+  end
+    
+  def to_hash input
+    nil
+  end
+    
 end
