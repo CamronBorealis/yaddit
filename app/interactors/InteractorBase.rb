@@ -1,3 +1,0 @@
-class InteractorBase
-	
-end

@@ -1,7 +1,11 @@
-#!/usr/bin/env rake
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+task :rspec do
+  sh 'bundle exec rspec ./app -c'
+end
 
-require File.expand_path('../config/application', __FILE__)
+task :server do
+  sh 'cd delivery/web && bundle exec shotgun -o 0.0.0.0 -p 9393 ./app.rb '
+end
 
-Yaddit::Application.load_tasks
+task :api do
+  sh 'cd delivery/api && bundle exec shotgun -o 0.0.0.0 -p 9394 ./app.rb '
+end
