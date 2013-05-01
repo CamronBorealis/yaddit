@@ -1,10 +1,5 @@
-require 'obvious'
-
-class MessageJackContract < Contract
-  
-  contract_for :list, {                                                                                                                                        
-    :input  => {},                                                                                                                                   
-    :output => {},                                                                                                                                   
-  } 
-    
+class MessageJackContract
+	def list
+		nil
+	end
 end

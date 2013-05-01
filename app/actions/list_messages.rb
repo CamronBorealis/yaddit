@@ -6,17 +6,18 @@ class ListMessages
     @message_jack = message_jack
   end
 
-  def execute input
-    # validate input
-    
+  def execute    
     # get the messages from the jack
-    # use: MessageJack.list
+    data = @message_jack.list
     
     # create/populate Message objects
-    # use: Message.populate
+    data.each do |info|
+      message = Message.new
+      message.populate info
+    end
     
     # return the result
-    # use: Message.to_hash
+    data
     
   end
 end
