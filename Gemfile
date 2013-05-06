@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'validation'
+gem 'bundler'
 
 group :development do
   gem 'rspec'
