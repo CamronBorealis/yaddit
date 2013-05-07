@@ -1,1 +1,1 @@
-web: bundle exec rackup config.ru -p $PORT
+web: bundle exec rails server -c delivery/rails_app/config.ru -p $PORT
