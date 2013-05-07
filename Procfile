@@ -1,1 +1,1 @@
-web: cd delivery/my_rails_app && bundle exec rackup config.ru -p $PORT
+web: bundle exec rackup config.ru -p $PORT
