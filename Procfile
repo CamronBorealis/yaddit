@@ -1,1 +1,1 @@
-web: ../delivery/rails_app/runserver.sh
+web: pwd && delivery/rails_app/runserver.sh
