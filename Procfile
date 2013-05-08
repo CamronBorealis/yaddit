@@ -1,1 +1,0 @@
-web: bundle exec rails server -c delivery/rails_app/config.ru -p $PORT
