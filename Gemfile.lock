@@ -75,6 +75,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.3)
+    pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
     pry (0.9.12.1-x86-mingw32)
       coderay (~> 1.0.5)
@@ -155,6 +156,7 @@ DEPENDENCIES
   guard
   guard-rspec
   jquery-rails
+  pg
   rails (= 3.2.13)
   rspec
   sass-rails (~> 3.2.3)
