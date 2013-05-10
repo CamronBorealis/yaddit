@@ -1,4 +1,5 @@
 require_relative '../../core/app/actions/list_messages'
+require_relative '../../core/app/actions/show_message'
 require_relative '../../core/external/sample_message_plug'
 
 class MessagesController < ApplicationController
@@ -10,6 +11,9 @@ class MessagesController < ApplicationController
   end
 
   def show
+  	action = ShowMessage.new SampleMessagePlug.new
+  	@message = action.execute params
 
+  	render 'show'
   end
 end
