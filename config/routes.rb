@@ -1,5 +1,6 @@
 Yaddit::Application.routes.draw do
   get "messages/list"
+  get "messages/:id" => 'messages#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

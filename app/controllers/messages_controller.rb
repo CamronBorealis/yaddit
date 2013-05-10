@@ -8,4 +8,8 @@ class MessagesController < ApplicationController
 
   	render 'list'
   end
+
+  def show
+
+  end
 end
