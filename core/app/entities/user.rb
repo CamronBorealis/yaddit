@@ -45,10 +45,10 @@ class User
 		{
 			:id => id,
 			:email => email,
-			:password => password,
-			:password_confirmation => password_confirmation,
 			:first_name => first_name,
-			:last_name => last_name
+			:last_name => last_name,
+			:password_salt => password_salt,
+			:password_hash => password_hash
 		}
 	end
 

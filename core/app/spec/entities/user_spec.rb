@@ -19,7 +19,7 @@ describe User do
 			input = {:id=>1, :email=>"a@b.com", :first_name=>"F", :last_name=>"L"}
 			user = User.new
 			user.populate input
-			user.to_hash.should eq :id=>1, :email=>"a@b.com", :first_name=>"F", :last_name=>"L", :password=>nil, :password_confirmation=>nil
+			user.to_hash.should eq :id=>1, :email=>"a@b.com", :first_name=>"F", :last_name=>"L", :password_hash => nil, :password_salt => nil
 		end
 
 		it 'should populate with valid input and matching password confirmation' do
@@ -27,8 +27,7 @@ describe User do
 			 :password_confirmation=>"pass", :first_name=>"f", :last_name=>"l"}
 			user = User.new
 			user.populate input
-			user.to_hash.should eq :id=>1, :email=>"a@b.com", :password=>"pass",
-			 :password_confirmation=>"pass", :first_name=>"f", :last_name=>"l"
+			user.to_hash.should eq :id=>1, :email=>"a@b.com", :password_hash => nil, :password_salt => nil, :first_name=>"f", :last_name=>"l"
 		end
 
 		it 'should raise an error with blank email' do
@@ -56,7 +55,7 @@ describe User do
 			input = {:id=>1, :email=>"test@test.com", :first_name=>"Camron", :last_name=>"Bute"}
 			user = User.new
 			user.populate input
-			user.to_hash.should eq :id=>1, :email=>"test@test.com", :first_name=>"Camron", :last_name=>"Bute", :password => nil, :password_confirmation => nil
+			user.to_hash.should eq :id=>1, :email=>"test@test.com", :first_name=>"Camron", :last_name=>"Bute", :password_hash => nil, :password_salt => nil
 		end
 	end
 
