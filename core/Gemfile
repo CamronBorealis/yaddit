@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'validation'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development do
   gem 'rspec'
