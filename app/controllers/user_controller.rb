@@ -11,7 +11,7 @@ class UserController < ApplicationController
   	p input
   	action.execute input
 
-  	redirect_to list_messages_path
+  	redirect_to '/messages/list'
   end
 
   def new
