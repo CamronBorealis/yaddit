@@ -33,6 +33,7 @@ class User
 	end
   
 	def populate input
+		p input
 		self.id = input[:id]
 		self.email = input[:email]
 		self.first_name = input[:first_name]

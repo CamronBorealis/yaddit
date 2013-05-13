@@ -1,0 +1,16 @@
+<h1>Register</h1>
+
+<%= form_tag("/user/create") do %>
+	<%= hidden_field_tag "user[id]", -1 %>
+	<%= label_tag "user[first_name]", "First Name:" %>
+	<%= text_field_tag "user[first_name]", "A" %>
+	<%= label_tag "user[last_name]", "Last Name:" %>
+	<%= text_field_tag "user[last_name]", "B" %>
+	<%= label_tag "user[email]", "Email Address:" %>
+	<%= text_field_tag "user[email]", "C" %>
+	<%= label_tag "user[password]", "Password:" %>
+	<%= password_field_tag "user[password]", "D" %>
+	<%= label_tag "user[password_confirmation]", "Password Confirmation:" %>
+	<%= password_field_tag "user[password_confirmation]", "E" %>
+	<%= submit_tag "Register" %>
+<% end %>

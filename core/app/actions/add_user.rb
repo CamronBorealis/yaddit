@@ -6,7 +6,7 @@ class AddUser
 	end
 
 	def execute input
-		user = @entity_factory.generate_user input[:user]
+		user = @entity_factory.generate_user input
 		user.encrypt_password @encryptor
 		@plug.create user.to_hash
 	end
