@@ -21,14 +21,11 @@ class User
 	def self.shape
 		{
 			:id=> Fixnum,
-			:email=>AND(String, NOT("")),
+			:email=>String,
 			:password=>OR(String, nil),
-			:password_confirmation=>AND(
-				OR(String, nil),
-			 	->password{password_confirmation.length > 0 if password != :password}
-			 ),
-			:first_name=>AND(String, NOT("")),
-			:last_name=>AND(String, NOT(""))
+			:password_confirmation=>OR(String, nil),
+			:first_name=>String,
+			:last_name=>String
 		}
 	end
   
