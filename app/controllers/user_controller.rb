@@ -1,14 +1,13 @@
 require_relative '../../core/app/actions/add_user'
 require_relative '../../core/app/entities/entity_factory'
 require_relative '../../core/external/bcrypt_plug'
-require_relative '../../core/external/sample_user_plug'
+require_relative '../../core/external/sample_user_jack'
 
 class UserController < ApplicationController
   def create
-  	action = AddUser.new(SampleUserPlug.new, BCryptPlug.new, EntityFactory.new)
-  	input = params[:user]
-  	input[:id] = Integer(input[:id])
-  	p input
+  	action = AddUser.new(SampleUserJack.new, BCryptPlug.new, EntityFactory.new)
+  	input = {:user=>params[:user]}
+  	input[:user][:id] = Integer(input[:user][:id])
   	action.execute input
 
   	redirect_to '/messages/list'
