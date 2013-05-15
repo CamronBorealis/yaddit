@@ -13,4 +13,8 @@ class SampleMessageJack
 	def get_by_id id
 		@messages.first
 	end
+
+	def create input
+		nil
+	end
 end

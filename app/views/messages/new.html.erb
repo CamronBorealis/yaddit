@@ -1,0 +1,9 @@
+<h1>New Message</h1>
+
+<%= form_tag("/messages/create") do %>
+	<%= label_tag "message[title]", "Title:" %>
+	<%= text_field_tag "message[title]", "A" %>
+	<%= label_tag "message[body]", "Body:" %>
+	<%= text_field_tag "message[body]", "B" %>
+	<%= submit_tag "Submit" %>
+<% end %>
