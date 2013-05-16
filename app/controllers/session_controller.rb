@@ -1,0 +1,28 @@
+require_relative '../../core/app/actions/authenticate_user'
+require_relative '../../core/app/entities/entity_factory'
+require_relative '../../core/external/bcrypt_plug'
+require_relative '../../core/external/sample_user_jack'
+
+class SessionController < ApplicationController
+	skip_before_filter :authenticate_user
+
+  def create
+  	action = AuthenticateUser.new SampleUserJack.new, EntityFactory.new, BCryptPlug.new
+  	input = {:credentials=>params[:credentials]}
+  	user_id = action.execute input
+
+  	if user_id == nil
+  		redirect_to "/session/log_in"
+  	else
+  		session[:user_id] = user_id
+  		redirect_to "/messages/list"
+  	end
+  end
+
+  def destroy
+  end
+
+  def log_in
+  	render 'log_in'
+  end
+end

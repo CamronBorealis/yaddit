@@ -3,7 +3,7 @@ class EncryptionJackContract
 		nil
 	end
 
-	def generate_hash salt
+	def generate_hash password, salt
 		nil
 	end
 end

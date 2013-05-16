@@ -36,6 +36,8 @@ class User
 		self.last_name = input[:last_name]
 		self.password = input[:password]
 		self.password_confirmation = input[:password_confirmation]
+		@password_salt = input[:password_salt]
+		@password_hash = input[:password_hash]
 	end
 
 	def to_hash

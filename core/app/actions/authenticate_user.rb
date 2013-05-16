@@ -8,6 +8,7 @@ class AuthenticateUser
 	def execute input
 		credentials = input[:credentials]
 		data = @jack.get_by_email credentials[:email]
+		p data
 		user = @entity_factory.generate_user data
 		hash = @encryptor.generate_hash credentials[:password], user.password_salt
 		result = hash == user.password_hash ? "OK" : "Denied"
