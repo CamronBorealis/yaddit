@@ -15,6 +15,6 @@ class SampleMessageJack
 	end
 
 	def create input
-		nil
+		1
 	end
 end

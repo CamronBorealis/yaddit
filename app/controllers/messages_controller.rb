@@ -24,9 +24,9 @@ class MessagesController < ApplicationController
     input = {:message=>params[:message]}
     input[:message][:id] = -1
     input[:message][:user_id] = 1
-    action.execute input
+    new_id = action.execute input
 
-    redirect_to '/messages/list'
+    redirect_to ('/messages/' + new_id.to_s)
   end
 
   def new
