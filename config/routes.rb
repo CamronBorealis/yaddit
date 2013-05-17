@@ -1,6 +1,6 @@
 Yaddit::Application.routes.draw do
   post "session/create"
-  post "session/destroy"
+  get "session/destroy"
   get "session/log_in"
 
   get 'user/register' => 'user#new'
