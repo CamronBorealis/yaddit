@@ -9,7 +9,7 @@ class SampleUserJack
 	end
 
 	def create input
-		if @plug = nil
+		if @plug == nil
 			nil
 		else
 			nil
