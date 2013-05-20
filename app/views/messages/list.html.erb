@@ -7,10 +7,10 @@
 	</tr>
 	
 	<% @messages.each do |message| %>
-
+		<% user = @users.select{|data_item| data_item[:id] == message[:user_id];}.first %>
 		<tr>
-			<td><%= message.body %></td>
-			<td><%= message.user_id %></td>
+			<td><%= message[:body] %></td>
+			<td><%= user[:first_name]%> <%= user[:last_name] %></td>
 		</tr>
 
 	<% end %>

@@ -7,8 +7,12 @@ require_relative '../../core/app/entities/entity_factory'
 
 class MessagesController < ApplicationController
   def list
-  	action = ListMessages.new SampleMessageJack.new
-  	@messages = action.execute
+  	action = ListMessages.new SampleMessageJack.new, EntityFactory.new
+  	data = action.execute
+    @messages = data[:messages]
+    @users = data[:users]
+
+p data
 
   	render 'list'
   end
