@@ -12,10 +12,10 @@ class Message
   def self.shape
     {
     	:id => Fixnum,
-		:title => AND(OR(String, nil), NOT("")),
-		:body => String,
-		:user_id => Fixnum,
-		:reply_to_message_id => OR(nil, Integer)
+  		:title => AND(OR(String, nil), NOT("")),
+  		:body => String,
+  		:user_id => Fixnum,
+  		:reply_to_message_id => OR(nil, Integer)
     }
   end
   
@@ -30,10 +30,10 @@ class Message
   def to_hash
     {
     	:id => id,
-		:title => title,
-		:body => body,
-		:user_id => user_id,
-		:reply_to_message_id => reply_to_message_id
+  		:title => title,
+  		:body => body,
+  		:user_id => user_id,
+  		:reply_to_message_id => reply_to_message_id
     }
   end
     

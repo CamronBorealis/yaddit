@@ -2,7 +2,7 @@
 <p><%= @message.body %></p>
 <%= form_tag("/messages/reply") do %>
 	<%= hidden_field_tag "message[reply_to_message_id]", @message.id %>
-	<%= label_tag "user[body]", "Post a reply:" %>
-	<%= text_field_tag "user[body]", "A" %>
+	<%= label_tag "message[body]", "Post a reply:" %>
+	<%= text_field_tag "message[body]", "A" %>
 	<%= submit_tag "Reply" %>
 <%end%>
