@@ -9,7 +9,7 @@
 	<% @messages.each do |message| %>
 		<% user = @users.select{|data_item| data_item[:id] == message[:user_id];}.first %>
 		<tr>
-			<td><%= message[:body] %></td>
+			<td><%= link_to message[:body], "/messages/" + message[:id].to_s %></td>
 			<td><%= user[:first_name]%> <%= user[:last_name] %></td>
 		</tr>
 
