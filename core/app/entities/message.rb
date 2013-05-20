@@ -4,7 +4,7 @@ class Message
   include Validation
 
   attr_validator :id, Fixnum
-  attr_validator :title, AND(String, NOT(""))
+  attr_validator :title, AND(OR(String, nil), NOT(""))
   attr_validator :body, String
   attr_validator :user_id, Fixnum
   attr_validator :reply_to_message_id, OR(nil, Integer)
@@ -12,7 +12,7 @@ class Message
   def self.shape
     {
     	:id => Fixnum,
-		:title => AND(String, NOT("")),
+		:title => AND(OR(String, nil), NOT("")),
 		:body => String,
 		:user_id => Fixnum,
 		:reply_to_message_id => OR(nil, Integer)

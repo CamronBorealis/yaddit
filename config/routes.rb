@@ -10,4 +10,5 @@ Yaddit::Application.routes.draw do
   get "messages/new"
   get "messages/:id" => 'messages#show'
   post "messages/create"
+  post "messages/reply"
 end

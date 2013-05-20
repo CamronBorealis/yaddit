@@ -32,4 +32,8 @@ class MessagesController < ApplicationController
   def new
     render 'new'
   end
+
+  def reply
+    redirect_to ('/messages/' + params[:message][:reply_to_message_id])
+  end
 end
