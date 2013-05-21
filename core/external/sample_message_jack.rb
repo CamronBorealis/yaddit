@@ -17,7 +17,7 @@ class SampleMessageJack
 	end
 
 	def get_by_id id
-		@messages.first
+		@messages
 	end
 
 	def create input

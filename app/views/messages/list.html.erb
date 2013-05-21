@@ -6,10 +6,10 @@
 		<td>User</td>
 	</tr>
 	
-	<% @messages.each do |message| %>
+	<% @messages.select{|data_item| data_item[:reply_to_message_id] == nil}.each do |message| %>
 		<% user = @users.select{|data_item| data_item[:id] == message[:user_id];}.first %>
 		<tr>
-			<td><%= link_to message[:body], "/messages/" + message[:id].to_s %></td>
+			<td><%= link_to message[:title], "/messages/" + message[:id].to_s %></td>
 			<td><%= user[:first_name]%> <%= user[:last_name] %></td>
 		</tr>
 

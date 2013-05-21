@@ -1,8 +1,11 @@
-<h1><%= @message.title %></h1>
-<p><%= @message.body %></p>
+<h1><%= @message[:title] %></h1>
+<div>
+<p><%= @message[:body] %></p>
 <%= form_tag("/messages/reply") do %>
-	<%= hidden_field_tag "message[reply_to_message_id]", @message.id %>
+	<%= hidden_field_tag "message[reply_to_message_id]", @message[:id] %>
 	<%= label_tag "message[body]", "Post a reply:" %>
 	<%= text_field_tag "message[body]", "A" %>
 	<%= submit_tag "Reply" %>
 <%end%>
+<%= render :partial=>'reply', :locals=>{:parent_message_id=>@message[:id]} %>
+</div>

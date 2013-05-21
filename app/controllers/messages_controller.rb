@@ -12,14 +12,15 @@ class MessagesController < ApplicationController
     @messages = data[:messages]
     @users = data[:users]
 
-p data
-
   	render 'list'
   end
 
   def show
-  	action = ShowMessage.new SampleMessageJack.new
-  	@message = action.execute params
+  	action = ShowMessage.new SampleMessageJack.new, EntityFactory.new
+    input = {:id=>Integer(params[:id])}
+    result = action.execute input
+  	@messages = result[:messages]
+    @message = @messages.select{|message_data| message_data[:id] == input[:id]}.first
 
   	render 'show'
   end
