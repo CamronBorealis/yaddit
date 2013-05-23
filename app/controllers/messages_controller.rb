@@ -3,11 +3,12 @@ require_relative '../../core/app/actions/show_message'
 require_relative '../../core/app/actions/add_message'
 require_relative '../../core/app/actions/reply_to_message'
 require_relative '../../core/external/sample_message_jack'
+require_relative '../../core/external/message_jack'
 require_relative '../../core/app/entities/entity_factory'
 
 class MessagesController < ApplicationController
   def list
-  	action = ListMessages.new SampleMessageJack.new, EntityFactory.new
+  	action = ListMessages.new MessageJack.new, EntityFactory.new
   	data = action.execute
     @messages = data[:messages]
     @users = data[:users]

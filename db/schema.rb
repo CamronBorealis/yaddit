@@ -14,18 +14,22 @@
 ActiveRecord::Schema.define(:version => 20130521053643) do
 
   create_table "messages", :force => true do |t|
-    t.integer "user_id"
-    t.string  "title"
-    t.string  "body"
-    t.integer "reply_to_message_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "body"
+    t.integer  "reply_to_message_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_salt"
-    t.string "password_hash"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_salt"
+    t.string   "password_hash"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
