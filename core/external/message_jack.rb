@@ -1,10 +1,8 @@
-class MessageJack
-	# def initialize plug_type = nil
-	# 	@plug = Sqlite3Plug.new
-	# end
+require_relative '../app/contracts/message_jack_contract'
 
-	def list
-		messages = MessageModel.all.select{|item| item.attributes}
+class MessageJack < MessageJackContract
+	def list_latest_root_messages
+		messages = MessageModel.where(:reply_to_message_id => nil).limit(50).select{|item| item.attributes}
 		users = UserModel.where(:id => messages.select{|message| message.user_id}).select{|item| item.attributes}
 
 		{
@@ -14,12 +12,27 @@ class MessageJack
 	end
 
 	def filter conditions
-		MessageModel.where(conditions).select{|item| item.attributes}
+		messages = MessageModel.where(conditions).select{|item| item.attributes}
+		users = UserModel.where(:id => messages.select{|message| message.user_id}).select{|item| item.attributes}
+
+		{
+			:messages => messages,
+			:users => users
+		}
+	end
+
+	def get_message_by_id_with_replies id
+		messages = MessageModel.where("id = ? OR reply_to_message_id = ?", id, id).select{|item| item.attributes}
+		users = UserModel.where(:id => messages.select{|message| message.user_id}).select{|item| item.attributes}
+
+		{
+			:messages => messages,
+			:users => users
+		}
 	end
 
 	def create input
 		message = MessageModel.new input
 		message.save
-
 	end
 end

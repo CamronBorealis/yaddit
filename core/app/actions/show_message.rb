@@ -8,7 +8,7 @@ class ShowMessage
 	end
 
 	def execute input
-		data = @message_jack.get_by_id input[:id]
+		data = @message_jack.get_message_by_id_with_replies(input[:id])
 
 	    messages = []
 	    users = []

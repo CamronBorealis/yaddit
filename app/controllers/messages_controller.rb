@@ -2,7 +2,6 @@ require_relative '../../core/app/actions/list_messages'
 require_relative '../../core/app/actions/show_message'
 require_relative '../../core/app/actions/add_message'
 require_relative '../../core/app/actions/reply_to_message'
-require_relative '../../core/external/sample_message_jack'
 require_relative '../../core/external/message_jack'
 require_relative '../../core/app/entities/entity_factory'
 
@@ -17,7 +16,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-  	action = ShowMessage.new SampleMessageJack.new, EntityFactory.new
+  	action = ShowMessage.new MessageJack.new, EntityFactory.new
     input = {:id=>Integer(params[:id])}
     result = action.execute input
   	@messages = result[:messages]
@@ -27,7 +26,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    action = AddMessage.new SampleMessageJack.new, EntityFactory.new
+    action = AddMessage.new MessageJack.new, EntityFactory.new
     input = {:message=>params[:message]}
     input[:message][:id] = -1
     input[:message][:user_id] = 1
@@ -41,7 +40,7 @@ class MessagesController < ApplicationController
   end
 
   def reply
-    action = ReplyToMessage.new SampleMessageJack.new, EntityFactory.new
+    action = ReplyToMessage.new MessageJack.new, EntityFactory.new
     input = {:message=>params[:message]}
     input[:message][:id] = -1
     input[:message][:user_id] = -1

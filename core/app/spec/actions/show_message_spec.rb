@@ -18,7 +18,7 @@ describe ShowMessage do
 				{:id=>2, :first_name=>"F2", :last_name=>"L2", :email=>"test@2.com"}
 			]
 		}
-		@plug.should_receive(:get_by_id).with(1).and_return(message_data)
+		@plug.should_receive(:get_message_by_id_with_replies).with(1).and_return(message_data)
 		messageA = double("Message")
 		messageA.should_receive("to_hash").and_return(message_data[:messages][0])
 		messageB = double("Message")

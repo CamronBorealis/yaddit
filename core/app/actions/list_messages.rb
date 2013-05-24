@@ -9,7 +9,7 @@ class ListMessages
   end
 
   def execute
-    data = @message_jack.list
+    data = @message_jack.list_latest_root_messages
 
     messages = []
     users = []
