@@ -8,6 +8,7 @@ class Message
   attr_validator :body, String
   attr_validator :user_id, Fixnum
   attr_validator :reply_to_message_id, OR(nil, Integer)
+  attr_validator :root_message_id, OR(nil, Integer)
   
   def self.shape
     {

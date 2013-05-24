@@ -12,7 +12,8 @@ class SessionController < ApplicationController
   	user_id = action.execute input
 
   	if user_id == nil
-  		redirect_to "/session/log_in"
+      flash[:error] = "That username/password combination is invalid"
+  		render 'log_in'
   	else
   		session[:user_id] = user_id
   		redirect_to "/messages/list"

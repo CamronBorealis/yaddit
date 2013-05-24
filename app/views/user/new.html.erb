@@ -1,5 +1,7 @@
 <h1>Register</h1>
 
+<%= render :partial=>'shared/errors' %>
+
 <%= form_tag("/user/create") do %>
 	<%= hidden_field_tag "user[id]", -1 %>
 	<%= label_tag "user[first_name]", "First Name:" %>

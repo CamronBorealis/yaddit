@@ -1,5 +1,7 @@
 <h1>Log In</h1>
 
+<%= render :partial=>'shared/errors' %>
+
 <%= form_tag("/session/create") do %>
 	<%= label_tag "credentials[email]", "Email:" %>
 	<%= text_field_tag "credentials[email]", "test@test.com" %>

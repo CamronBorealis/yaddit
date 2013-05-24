@@ -1,4 +1,7 @@
 <h1><%= @message[:title] %></h1>
+
+<%= render :partial=>'shared/errors' %>
+
 <div>
 <p><%= @message[:body] %></p>
 <%= form_tag("/messages/reply") do %>

@@ -26,13 +26,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-    action = AddMessage.new MessageJack.new, EntityFactory.new
-    input = {:message=>params[:message]}
-    input[:message][:id] = -1
-    input[:message][:user_id] = 1
-    new_id = action.execute input
+    begin    
+      action = AddMessage.new MessageJack.new, EntityFactory.new
+      input = {:message=>params[:message]}
+      input[:message][:id] = -1
+      input[:message][:user_id] = session[:user_id]
+      new_id = action.execute input
 
-    redirect_to ('/messages/' + new_id.to_s)
+      redirect_to ('/messages/' + new_id.to_s)
+    rescue => e
+      flash[:error] = "Error occured: " + e.message
+      render 'new'
+    end
   end
 
   def new
@@ -43,7 +48,7 @@ class MessagesController < ApplicationController
     action = ReplyToMessage.new MessageJack.new, EntityFactory.new
     input = {:message=>params[:message]}
     input[:message][:id] = -1
-    input[:message][:user_id] = -1
+    input[:message][:user_id] = session[:user_id]
     input[:message][:reply_to_message_id] = Integer(input[:message][:reply_to_message_id])
     action.execute input
 
