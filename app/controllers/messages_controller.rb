@@ -50,8 +50,8 @@ class MessagesController < ApplicationController
     input[:message][:id] = -1
     input[:message][:user_id] = session[:user_id]
     input[:message][:reply_to_message_id] = Integer(input[:message][:reply_to_message_id])
-    action.execute input
-
-    redirect_to ('/messages/' + params[:message][:reply_to_message_id].to_s)
+    new_id = action.execute input
+p new_id
+    redirect_to ('/messages/' + new_id.to_s)
   end
 end

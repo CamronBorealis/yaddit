@@ -2,8 +2,8 @@ require_relative '../../entities/message'
 
 describe Message do
     before :all do
-        @valid_messages = [{ :title => 'Valid title', :body => 'Valid Body', :id => 1, :user_id => 1, :reply_to_message_id => nil }]
-        @invalid_messages = [{ :title => '', :body => 'Valid Body', :id => 1, :user_id => 1, :reply_to_message_id => nil }]
+        @valid_messages = [{ :title => 'Valid title', :body => 'Valid Body', :id => 1, :user_id => 1, :reply_to_message_id => nil, :root_message_id=>nil }]
+        @invalid_messages = [{ :title => '', :body => 'Valid Body', :id => 1, :user_id => 1, :reply_to_message_id => nil, :root_message_id=>nil }]
     end
   
   describe '.populate' do

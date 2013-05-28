@@ -10,13 +10,15 @@ class AuthenticateUser
 		data = @jack.get_by_email credentials[:email]
 		if data == nil
 			nil
-			result = "Denied"
 		else
 			user = @entity_factory.generate_user data[:user]
 			hash = @encryptor.generate_hash credentials[:password], user.password_salt
-			result = hash == user.password_hash ? "OK" : "Denied"
+			if hash == user.password_hash
+				user.id
+			else
+				nil
+			end
 		end
 		
-		{:result=>result}
 	end
 end
