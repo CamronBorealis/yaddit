@@ -1,13 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  body: MyString
+  id: 1
+  title: First Post
+  body: This is the first post
   user_id: 1
-  reply_to_message_id: 1
+  created_at: 01-01-1990
+  updated_at: 01-01-1990
 
 two:
-  title: MyString
-  body: MyString
-  user_id: 1
+  id: 2
+  body: This is the first reply
+  user_id: 2
   reply_to_message_id: 1
+  root_message_id: 1
+  created_at: 01-01-1990
+  updated_at: 01-01-1990

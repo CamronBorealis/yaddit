@@ -1,15 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  password_hash: MyString
-  password-salt: MyString
+  id: 1
+  email: first@user.com
+  first_name: Firsty
+  last_name: McFirst
+  password_hash: $2a$10$.bE45Ve8MK4XdWoThXExQO7OBUP7SZYGryRHxLKLIoluPRQQPj3P6
+  password_salt: $2a$10$.bE45Ve8MK4XdWoThXExQO
+  created_at: 01-01-1990
+  updated_at: 01-01-1990
 
 two:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  password_hash: MyString
-  password-salt: MyString
+  id: 2
+  email: second@user.com
+  first_name: Twice
+  last_name: O'Second
+  password_hash: $2a$10$.bE45Ve8MK4XdWoThXExQO7OBUP7SZYGryRHxLKLIoluPRQQPj3P6
+  password_salt: $2a$10$.bE45Ve8MK4XdWoThXExQO
+  created_at: 01-01-1990
+  updated_at: 01-01-1990

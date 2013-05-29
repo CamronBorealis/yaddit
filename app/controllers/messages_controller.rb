@@ -12,8 +12,6 @@ class MessagesController < ApplicationController
     @messages = data[:messages]
     @users = data[:users]
 
-    p data
-
   	render 'list'
   end
 
