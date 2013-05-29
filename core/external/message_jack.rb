@@ -22,7 +22,7 @@ class MessageJack < MessageJackContract
 	end
 
 	def get_message_by_id_with_replies id
-		messages = MessageModel.where("id = ? OR root_message_id = ?", id, id).collect{|item| item.attributes}
+		messages = MessageModel.where("id = ? OR root_message_id = ?", id, id).collect{|item| item.attributes.symbolize_keys}
 		users = UserModel.where(:id=> messages.map{|message| message[:user_id]}).collect{|item| item.attributes.symbolize_keys}
 
 		{
