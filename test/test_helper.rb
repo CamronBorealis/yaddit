@@ -10,4 +10,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def login id=1
+  	session[:user_id] = id
+  end
+
+  def assert_no_flashes
+  	assert flash.count == 0, "Error messages were present"
+  end
 end
