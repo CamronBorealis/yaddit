@@ -4,8 +4,8 @@
 
 <%= form_tag("/messages/create") do %>
 	<%= label_tag "message[title]", "Title:" %>
-	<%= text_field_tag "message[title]", "A" %>
+	<%= text_field_tag "message[title]" %>
 	<%= label_tag "message[body]", "Body:" %>
-	<%= text_field_tag "message[body]", "B" %>
+	<%= text_field_tag "message[body]" %>
 	<%= submit_tag "Submit" %>
 <% end %>
