@@ -4,6 +4,8 @@
 
 <div>
 <p><%= @message[:body] %></p>
+<% user = @users.select{|s| s[:id] == @message[:user_id]}.first; %>
+<p>Posted by <%= user[:first_name] %> <%= user[:last_name] %></p>
 <%= form_tag("/messages/reply") do %>
 	<%= hidden_field_tag "message[reply_to_message_id]", @message[:id] %>
 	<%= label_tag "message[body]", "Post a reply:" %>

@@ -1,6 +1,8 @@
 <% @messages.select{|m| m[:reply_to_message_id] == parent_message_id}.each do |message_info| %>
 <div style="margin-left:25px">
 <p><%= message_info[:body] %></p>
+<% user = @users.select{|s| s[:id] == message_info[:user_id]}.first; %>
+<p>Posted by <%= user[:first_name] %> <%= user[:last_name] %></p>
 <%= form_tag("/messages/reply") do %>
 	<%= hidden_field_tag "message[reply_to_message_id]", message_info[:id] %>
 	<%= label_tag "message[body]", "Post a reply:" %>

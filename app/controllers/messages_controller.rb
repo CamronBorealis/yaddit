@@ -21,6 +21,7 @@ class MessagesController < ApplicationController
     result = action.execute input
   	@messages = result[:messages]
     @message = @messages.select{|message_data| message_data[:id] == input[:id]}.first
+    @users = result[:users]
 
   	render 'show'
   end
