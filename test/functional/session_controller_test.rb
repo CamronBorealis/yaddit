@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionControllerTest < ActionController::TestCase
   test "should get create" do
-    get :create, :credentials=>{:email=>"first@user.com", :password=>"password"}
+    post :create, :credentials=>{:email=>"first@user.com", :password=>"password"}
     assert_redirected_to :controller=>"messages", :action=>"list"
     assert_no_flashes
   end
@@ -10,6 +10,11 @@ class SessionControllerTest < ActionController::TestCase
   test "should get destroy" do
     get :destroy
     assert_redirected_to :controller=>"session", :action=>"log_in"
+  end
+
+  test "should return message on incorrect login" do
+  	post :create, :credentials=>{:email=>"first@user.com", :password=>"wrong_password"}
+  	assert_equal "That username/password combination is invalid", flash[:error]
   end
 
 end

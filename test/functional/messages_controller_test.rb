@@ -29,4 +29,11 @@ class MessagesControllerTest < ActionController::TestCase
   	assert_no_flashes
   end
 
+  test "should post reply successfully" do
+    login
+    post :reply, {:message=>{:reply_to_message_id=>1, :body=>"A"}}
+    assert_redirected_to :controller=>"messages", :action=>"show", :id=>1
+    assert_no_flashes
+  end
+
 end

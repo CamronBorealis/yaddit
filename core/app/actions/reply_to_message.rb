@@ -9,7 +9,8 @@ class ReplyToMessage
 	def execute input
 		message_data = input[:message]
 
-		parent_message = @message_jack.filter({:id=>message_data[:reply_to_message_id]})[:messages].first
+		parent_messages = @message_jack.filter({:id=>message_data[:reply_to_message_id]})
+		parent_message = parent_messages[:messages].first
 		message_data[:root_message_id] = parent_message[:root_message_id] ||= parent_message[:id]
 
 		message = @entity_factory.generate_message message_data

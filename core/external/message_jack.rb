@@ -12,7 +12,7 @@ class MessageJack < MessageJackContract
 	end
 
 	def filter conditions
-		messages = MessageModel.where(conditions).collect{|item| item.attributes}
+		messages = MessageModel.where(conditions).collect{|item| item.attributes.symbolize_keys}
 		users = UserModel.where(:id=> messages.map{|message| message[:user_id]}).collect{|item| item.attributes.symbolize_keys}
 
 		{
