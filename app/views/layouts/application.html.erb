@@ -7,13 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <% if session[:user_id] %>
-	<%= link_to "Sign Out", "/session/destroy" %>
-<% else %>
-	<%= link_to "Sign Up", "/user/register" %> or <%= link_to "Log In", "/session/log_in" %>
+
+	<!-- ## Heading ## -->
+	<div class="heading">
+		<h1 class="logo">Yeddit</h1>
+		<h1 id="newmessages"><%= link_to "New", "/messages/list" %></h1>
+		<h1 id="submit"><%= link_to "Submit", "/messages/new" %></h1>
+		<a href="#"><%= image_tag "icon_options.png", :id => "userOptionsBtn" %></a>
+	</div>
+
+	<!-- ## User Options ## -->
+	<div id="userOptions">
+
+		<a id="username" href="#">Placeholder <span>[ edit ]</span></a><br />
+
+		<%= link_to "Logout", "/session/destroy" %>
+
+	</div>
+
 <% end %>
-<br/>
-<%= yield %>
+
+
+<div class="contentContainer">
+	<%= yield %>
+</div>
 
 </body>
 </html>

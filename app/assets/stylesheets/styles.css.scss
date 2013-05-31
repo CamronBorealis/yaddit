@@ -1,10 +1,24 @@
 /* General styles: */
 
-body { font-family: Arial, Helvetica, sans-serif; margin:0px; } 
+$gray: #EAEAEA; // (heading background color)
+$blue: #4683FF; // (links)
+$subtleGray: #666; // (for subtle text elements)
 
-a, a.visited { color: inherit; text-decoration: inherit;   }
+body { 
+	font-family: Arial, Helvetica, sans-serif; 
+	margin:0px;
+} 
 
-a:hover { color: #4683FF; }
+a, a.visited { 
+	color: inherit; 
+	text-decoration: inherit;   }
+
+a:hover { color: $blue;  }
+
+h1 { 
+	font-size: 19px;
+	font-weight: normal; 
+}
 
 input.button {
 	width: 68px;
@@ -48,3 +62,60 @@ div.login {
 		text-align: center; 
 	}
 }
+
+div.heading { 
+	background-color: $gray;
+	padding: 0 10px 0 10px;
+	height:53px;
+
+	h1 {
+		float: left;
+		margin: 10px 15px 0 0;
+		padding:10px;
+		color: #B2B2B2;
+	}
+
+	h1.logo, h1.selected { 
+		color: #000;
+	}
+
+	h1.selected { 
+		border-radius: 10px 10px 0 0; 
+		background-color: #FFF; 
+	}
+
+	img {
+		float:right;
+		margin-top: 15px; 
+	}
+
+}
+
+#userOptions { 
+	background-color: $gray;
+	padding: 15px; 
+	position: fixed; 
+	top: 54px;
+	right: 0;
+	border-bottom-left-radius: 15px; 
+	text-align:right; 
+	line-height: 200%; 
+	margin-top:-6px;
+
+}
+
+div.post { 
+	padding-bottom: 25px; 
+	margin-bottom: 33px;
+	border-bottom:1px solid #E5E5E5;
+
+	h1 { margin-bottom: 6px; }
+
+	span {
+		font-size:12px; 
+		color: $subtleGray;  
+	}
+
+}
+
+div.contentContainer { padding: 20px; }
