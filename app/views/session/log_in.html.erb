@@ -1,11 +1,22 @@
-<h1>Log In</h1>
+<div class="login">
 
-<%= render :partial=>'shared/errors' %>
+	<%= image_tag "logo.png" %>
 
-<%= form_tag("/session/create") do %>
-	<%= label_tag "credentials[email]", "Email:" %>
-	<%= text_field_tag "credentials[email]" %>
-	<%= label_tag "credentials[password]", "Password:" %>
-	<%= password_field_tag "credentials[password]" %>
-	<%= submit_tag "Log In" %>
-<% end %>
+	<div class="credentials">
+
+		<%= render :partial=>'shared/errors' %>
+
+		<%= form_tag("/session/create") do %>
+
+			<%= text_field_tag "credentials[email]", nil, :placeholder => 'Username or email'%>
+
+			<%= password_field_tag "credentials[password]", nil, :placeholder => 'Password' %>
+			<%= submit_tag "", :class => 'button login' %>
+
+		<% end %>
+
+	</div>
+
+	<p>New? <%= link_to "Sign Up", "/user/register" %></p>	
+
+</div>

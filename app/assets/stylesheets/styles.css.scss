@@ -1,0 +1,50 @@
+/* General styles: */
+
+body { font-family: Arial, Helvetica, sans-serif; margin:0px; } 
+
+a, a.visited { color: inherit; text-decoration: inherit;   }
+
+a:hover { color: #4683FF; }
+
+input.button {
+	width: 68px;
+	height: 31px;
+	border:0px; 
+}
+
+
+/* Login page:  */
+div.login { 
+
+	width:338px; 
+	margin: 250px auto 0 auto;
+
+	div.credentials {
+
+		width: 176px;
+		float:right; 
+
+		img { 
+			float:left; 
+		}
+
+		input { 
+			margin-bottom: 15px; 
+		}
+
+		#credentials_email { 
+			width: 176px;
+		}
+
+		#credentials_password { 
+			width: 124px; 
+		}
+
+		.login { 
+			background-image: url('btn_login.png');  
+		}
+	}
+	p { 
+		text-align: center; 
+	}
+}
