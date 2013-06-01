@@ -10,7 +10,7 @@ class UserController < ApplicationController
     begin
     	action = AddUser.new(UserJack.new, BCryptPlug.new, EntityFactory.new)
     	input = {:user=>params[:user]}
-    	input[:user][:id] = Integer(input[:user][:id])
+    	input[:user][:id] = -1
     	action.execute input
 
     	redirect_to '/messages/list'

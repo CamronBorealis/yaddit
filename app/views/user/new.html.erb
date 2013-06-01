@@ -3,16 +3,29 @@
 <%= render :partial=>'shared/errors' %>
 
 <%= form_tag("/user/create") do %>
-	<%= hidden_field_tag "user[id]", -1 %>
-	<%= label_tag "user[first_name]", "First Name:" %>
-	<%= text_field_tag "user[first_name]" %>
-	<%= label_tag "user[last_name]", "Last Name:" %>
-	<%= text_field_tag "user[last_name]" %>
-	<%= label_tag "user[email]", "Email Address:" %>
-	<%= text_field_tag "user[email]" %>
-	<%= label_tag "user[password]", "Password:" %>
-	<%= password_field_tag "user[password]" %>
-	<%= label_tag "user[password_confirmation]", "Password Confirmation:" %>
-	<%= password_field_tag "user[password_confirmation]" %>
-	<%= submit_tag "Register" %>
+	<table>
+		<tr>
+			<td><%= label_tag "user[first_name]", "First Name:" %></td>
+			<td><%= text_field_tag "user[first_name]" %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "user[last_name]", "Last Name:" %></td>
+			<td><%= text_field_tag "user[last_name]" %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "user[email]", "Email Address:" %></td>
+			<td><%= text_field_tag "user[email]" %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "user[password]", "Password:" %></td>
+			<td><%= password_field_tag "user[password]" %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "user[password_confirmation]", "Password Confirmation:" %></td>
+			<td><%= password_field_tag "user[password_confirmation]" %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= submit_tag "Register" %></td>
+		</tr>
+	</table>
 <% end %>
