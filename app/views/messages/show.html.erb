@@ -1,17 +1,22 @@
-<%= link_to 'Back to messages', 'list' %>
-<h1><%= @message[:title] %></h1>
+<!-- ## Post (full) ## -->
+<div class="post">
 
-<%= render :partial=>'shared/errors' %>
+	<h1><%= @message[:title] %></h1>
+	<% user = @users.select{|s| s[:id] == @message[:user_id]}.first; %>
+	<span>posted by <%= user[:first_name] %> <%= user[:last_name] %></span>	
 
-<div>
-<p><%= @message[:body] %></p>
-<% user = @users.select{|s| s[:id] == @message[:user_id]}.first; %>
-<p>Posted by <%= user[:first_name] %> <%= user[:last_name] %></p>
-<%= form_tag("/messages/reply") do %>
-	<%= hidden_field_tag "message[reply_to_message_id]", @message[:id] %>
-	<%= label_tag "message[body]", "Post a reply:" %>
-	<%= text_field_tag "message[body]" %>
-	<%= submit_tag "Reply" %>
-<%end%>
-<%= render :partial=>'reply', :locals=>{:parent_message_id=>@message[:id]} %>
+	<%= render :partial=>'shared/errors' %>
+
+	<p><%= @message[:body] %></p>
+
+	<br />
+	
+	<%= form_tag("/messages/reply") do %>
+		<%= hidden_field_tag "message[reply_to_message_id]", @message[:id] %>
+		<%= text_area_tag "message[body]" %><br />
+		<%= submit_tag "", :class => 'button post' %>
+	<%end%>
+
 </div>
+
+<%= render :partial=>'reply', :locals=>{:parent_message_id=>@message[:id]} %>

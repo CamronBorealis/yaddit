@@ -1,0 +1,156 @@
+/* General styles: */
+
+$blue: #4683FF; // (links)
+$gray: #EAEAEA; // (heading background color)
+$lightGray: #F7F7F7; // (login page bg)
+$subtleGray: #666; // (for subtle text elements)
+
+body { 
+	font-family: Arial, Helvetica, sans-serif; 
+	margin:0px;
+} 
+
+div.contentContainer { padding: 20px; }
+
+a, a.visited { 
+	color: inherit; 
+	text-decoration: inherit;   }
+
+a:hover { color: $blue;  }
+
+h1 { 
+	font-size: 19px;
+	font-weight: normal; 
+}
+
+input.button {
+	width: 68px;
+	height: 31px;
+	border:0px; 
+}
+
+
+/* Login page:  */
+
+body.gray { 
+	background-color: $lightGray; 
+}
+
+div.login { 
+
+	width:338px; 
+	margin: 250px auto 0 auto;
+
+	div.credentials {
+
+		width: 176px;
+		float:right; 
+
+		img { 
+			float:left; 
+		}
+
+		input { 
+			margin-bottom: 15px; 
+		}
+
+		#credentials_email { 
+			width: 176px;
+		}
+
+		#credentials_password { 
+			width: 124px; 
+		}
+
+		.login { 
+			background-image: url('btn_login.png');  
+		}
+	}
+	p { 
+		text-align: center; 
+		color: $subtleGray; 
+	}
+}
+
+/* Heading */
+div.heading { 
+	background-color: $gray;
+	padding: 0 10px 0 10px;
+	height:53px;
+
+	h1 {
+		float: left;
+		margin: 10px 15px 0 0;
+		padding:10px;
+		color: #B2B2B2;
+	}
+
+	h1.logo, h1.selected { 
+		color: #000;
+	}
+
+	h1.selected { 
+		border-radius: 10px 10px 0 0; 
+		background-color: #FFF; 
+	}
+
+	img {
+		float:right;
+		margin-top: 15px; 
+	}
+
+}
+
+#userOptions { 
+	background-color: $gray;
+	padding: 15px; 
+	position: fixed; 
+	top: 54px;
+	right: 0;
+	border-bottom-left-radius: 15px; 
+	text-align:right; 
+	line-height: 200%; 
+	margin-top:-6px;
+
+}
+
+
+/* Threads */
+
+div.post { 
+	padding-bottom: 25px; 
+	margin-bottom: 33px;
+	border-bottom:1px solid #E5E5E5;
+
+	h1 { margin-bottom: 6px; }
+
+	span {
+		font-size:12px; 
+		color: $subtleGray;  
+	}
+
+	input.post { 
+		background-image: url('btn_post.png');  
+	}
+
+	#message_body {
+		width: 590px; 
+		height: 120px; 
+		margin-bottom: 20px; 
+	}
+
+}
+
+div.childPosts { 
+	margin-left: 25px; 
+
+	div.reply { 
+		background: url('icon_reply.png') no-repeat 0px 6px;  
+		padding-left: 30px; 
+	}
+
+	.replyButton { 
+		cursor:pointer; 
+	}
+
+}

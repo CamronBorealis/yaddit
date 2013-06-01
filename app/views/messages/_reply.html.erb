@@ -1,14 +1,30 @@
 <% @messages.select{|m| m[:reply_to_message_id] == parent_message_id}.each do |message_info| %>
-<div style="margin-left:25px">
-<p><%= message_info[:body] %></p>
-<% user = @users.select{|s| s[:id] == message_info[:user_id]}.first; %>
-<p>Posted by <%= user[:first_name] %> <%= user[:last_name] %></p>
-<%= form_tag("/messages/reply") do %>
-	<%= hidden_field_tag "message[reply_to_message_id]", message_info[:id] %>
-	<%= label_tag "message[body]", "Post a reply:" %>
-	<%= text_field_tag "message[body]" %>
-	<%= submit_tag "Reply" %>
-<%end%>
-<%= render :partial=>'reply', :locals=>{:parent_message_id=>message_info[:id]} %>
+
+<div class="childPosts">
+
+	<div class="post reply">
+
+		<% user = @users.select{|s| s[:id] == message_info[:user_id]}.first; %>
+		<span>by <%= user[:first_name] %> <%= user[:last_name] %></span>
+
+		<p><%= message_info[:body] %></p>
+
+
+		<span class="replyButton">Reply</span>
+
+		<div class="replyForm">
+			<%= form_tag("/messages/reply") do %>
+				<%= hidden_field_tag "message[reply_to_message_id]", message_info[:id] %>
+				<%= text_area_tag "message[body]" %><br />
+				<%= submit_tag "", :class => 'button post' %>
+			<%end%>
+		</div>
+
+	</div>
+
+
+	<%= render :partial=>'reply', :locals=>{:parent_message_id=>message_info[:id]} %>
+
 </div>
+
 <% end %>

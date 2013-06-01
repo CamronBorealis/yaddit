@@ -1,19 +1,11 @@
-<h1>Messages</h1>
+<% @messages.select{|data_item| data_item[:reply_to_message_id] == nil}.each do |message| %>
+	<% user = @users.select{|data_item| data_item[:id] == message[:user_id]}.first %>
 
-<table>
-	<tr>
-		<td>Title</td>
-		<td>User</td>
-	</tr>
+	<!-- ## Post (teaser) ## -->
+	<div class="post">
+		<h1><%= link_to message[:title], "/messages/" + message[:id].to_s %></h1>
+		<span>posted by <%= user[:first_name] %> <%= user[:last_name] %></span>
+	</div>
 	
-	<% @messages.select{|data_item| data_item[:reply_to_message_id] == nil}.each do |message| %>
-		<% user = @users.select{|data_item| data_item[:id] == message[:user_id]}.first %>
-		<tr>
-			<td><%= link_to message[:title], "/messages/" + message[:id].to_s %></td>
-			<td><%= user[:first_name]%> <%= user[:last_name] %></td>
-		</tr>
+<% end %>
 
-	<% end %>
-
-	<%= link_to "New Message", "/messages/new" %>
-</table>
