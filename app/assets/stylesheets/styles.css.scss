@@ -1,7 +1,8 @@
 /* General styles: */
 
-$gray: #EAEAEA; // (heading background color)
 $blue: #4683FF; // (links)
+$gray: #EAEAEA; // (heading background color)
+$lightGray: #F7F7F7; // (login page bg)
 $subtleGray: #666; // (for subtle text elements)
 
 body { 
@@ -28,6 +29,11 @@ input.button {
 
 
 /* Login page:  */
+
+body.gray { 
+	background-color: $lightGray; 
+}
+
 div.login { 
 
 	width:338px; 
@@ -60,6 +66,7 @@ div.login {
 	}
 	p { 
 		text-align: center; 
+		color: $subtleGray; 
 	}
 }
 
@@ -116,6 +123,25 @@ div.post {
 		color: $subtleGray;  
 	}
 
+	input.post { 
+		background-image: url('btn_post.png');  
+	}
+
+	#message_body {
+		width: 590px; 
+		height: 120px; 
+		margin-bottom: 20px; 
+	}
+
+}
+
+div.reply { 
+	background: url('icon_reply.png') no-repeat 0px 6px;  
+	padding-left: 30px; 
+}
+
+div.parentPost { 
+	margin-left: 25px; 
 }
 
 div.contentContainer { padding: 20px; }

@@ -14,7 +14,13 @@ $(document).ready(function(){
 	if(path == "/messages/list") {
 		newmessages.className = 'selected'; 
 	}
-	if(path == "/messages/new")
+	if(path == "/messages/new") {
 		submit.className = 'selected'; 
+	}
+
+	/* Set bg color if on login page */
+	if(path == "/session/log_in") {
+		document.body.className = 'gray'; 
+	}
 
 });
