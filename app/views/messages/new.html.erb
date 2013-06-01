@@ -3,9 +3,17 @@
 <%= render :partial=>'shared/errors' %>
 
 <%= form_tag("/messages/create") do %>
-	<%= label_tag "message[title]", "Title:" %>
-	<%= text_field_tag "message[title]" %>
-	<%= label_tag "message[body]", "Body:" %>
-	<%= text_field_tag "message[body]" %>
-	<%= submit_tag "Submit" %>
+	<table>
+		<tr>
+			<td style="vertical-align:top"><%= label_tag "message[title]", "Title:" %></td>
+			<td><%= text_field_tag "message[title]" %></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top"><%= label_tag "message[body]", "Body:" %></td>
+			<td><%= text_area_tag "message[body]", nil, :size => "100x25" %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= submit_tag "Submit" %></td>
+		</tr>
+	</table>
 <% end %>
