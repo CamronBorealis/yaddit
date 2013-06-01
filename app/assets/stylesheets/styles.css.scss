@@ -10,6 +10,8 @@ body {
 	margin:0px;
 } 
 
+div.contentContainer { padding: 20px; }
+
 a, a.visited { 
 	color: inherit; 
 	text-decoration: inherit;   }
@@ -70,6 +72,7 @@ div.login {
 	}
 }
 
+/* Heading */
 div.heading { 
 	background-color: $gray;
 	padding: 0 10px 0 10px;
@@ -111,6 +114,9 @@ div.heading {
 
 }
 
+
+/* Threads */
+
 div.post { 
 	padding-bottom: 25px; 
 	margin-bottom: 33px;
@@ -135,13 +141,16 @@ div.post {
 
 }
 
-div.reply { 
-	background: url('icon_reply.png') no-repeat 0px 6px;  
-	padding-left: 30px; 
-}
-
-div.parentPost { 
+div.childPosts { 
 	margin-left: 25px; 
-}
 
-div.contentContainer { padding: 20px; }
+	div.reply { 
+		background: url('icon_reply.png') no-repeat 0px 6px;  
+		padding-left: 30px; 
+	}
+
+	.replyButton { 
+		cursor:pointer; 
+	}
+
+}

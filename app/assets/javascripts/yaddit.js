@@ -23,4 +23,15 @@ $(document).ready(function(){
 		document.body.className = 'gray'; 
 	}
 
+	//Hide the Reply forms: 
+	$(".replyForm").each(function(i, obj) {
+		$(this).hide();
+	}); 
+
+	//Add a click handler to each "Reply button" which toggles the next div:
+	$(".replyButton").each(function(i, obj) {
+		$(this).click(function(event) {
+			$(this).next(".replyForm").toggle(); 
+		})
+	})
 });
