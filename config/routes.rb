@@ -1,4 +1,6 @@
 Yaddit::Application.routes.draw do
+  root :to => "messages#list"
+  
   post "session/create"
   get "session/destroy"
   get "session/log_in"
