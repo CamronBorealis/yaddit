@@ -1,31 +1,43 @@
-<h1>Register</h1>
+<div class="settings">
+	
+	<h1>Sign Up for free</h1>
 
-<%= render :partial=>'shared/errors' %>
+	<%= render :partial=>'shared/errors' %>
 
-<%= form_tag(user_create_path) do %>
-	<table>
-		<tr>
-			<td><%= label_tag "user[first_name]", "First Name:" %></td>
-			<td><%= text_field_tag "user[first_name]" %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag "user[last_name]", "Last Name:" %></td>
-			<td><%= text_field_tag "user[last_name]" %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag "user[email]", "Email Address:" %></td>
-			<td><%= text_field_tag "user[email]" %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag "user[password]", "Password:" %></td>
-			<td><%= password_field_tag "user[password]" %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag "user[password_confirmation]", "Password Confirmation:" %></td>
-			<td><%= password_field_tag "user[password_confirmation]" %></td>
-		</tr>
-		<tr>
-			<td colspan="2"><%= submit_tag "Register" %></td>
-		</tr>
-	</table>
-<% end %>
+	<%= form_tag(user_create_path) do %>
+
+	<div>
+		<%= label_tag "user[first_name]", "First Name" %>
+		<%= text_field_tag "user[first_name]" %>
+	</div>	
+		
+
+	<div>	
+		<%= label_tag "user[last_name]", "Last Name" %>
+		<%= text_field_tag "user[last_name]" %>
+	</div>
+			
+	<div>			
+		<%= label_tag "user[email]", "Email Address" %>
+		<%= text_field_tag "user[email]" %>
+	</div>
+
+			
+	<div>			
+		<%= label_tag "user[password]", "Password" %>
+		<%= password_field_tag "user[password]" %>
+	</div>
+
+			
+	<div>			
+		<%= label_tag "user[password_confirmation]", "Password Confirm" %>
+		<%= password_field_tag "user[password_confirmation]" %>
+	</div>
+			
+			
+	<%= submit_tag "", :class => 'button signup' %>
+			
+	
+	<% end %>
+
+</div>

@@ -11,7 +11,7 @@ $(document).ready(function(){
 	/* Adjust menu UI depending on URL path */
 	var path = window.location.pathname; 
 
-	if(path == "/messages/list") {
+	if(path == "/messages/list" || path == "/") {
 		newmessages.className = 'selected'; 
 	}
 	if(path == "/messages/new") {
@@ -19,7 +19,7 @@ $(document).ready(function(){
 	}
 
 	/* Set bg color if on login page */
-	if(path == "/session/log_in") {
+	if(path == "/login" || path =="/register") {
 		document.body.className = 'gray'; 
 	}
 

@@ -1,19 +1,19 @@
-<h1>New Message</h1>
+<div class="newPost">
 
-<%= render :partial=>'shared/errors' %>
+	<%= render :partial=>'shared/errors' %>
 
-<%= form_tag(messages_create_path) do %>
-	<table>
-		<tr>
-			<td style="vertical-align:top"><%= label_tag "message[title]", "Title:" %></td>
-			<td><%= text_field_tag "message[title]" %></td>
-		</tr>
-		<tr>
-			<td style="vertical-align:top"><%= label_tag "message[body]", "Body:" %></td>
-			<td><%= text_area_tag "message[body]", nil, :size => "100x25" %></td>
-		</tr>
-		<tr>
-			<td colspan="2"><%= submit_tag "Submit" %></td>
-		</tr>
-	</table>
-<% end %>
+	<%= form_tag(messages_create_path) do %>
+
+	<h1>Title</h1>
+	<%= text_field_tag "message[title]" %>
+	<br /><br />
+
+	<h1>Body</h1>
+	<%= text_area_tag "message[body]" %>
+	<br /><br />
+
+	<%= submit_tag "", :class => 'button post' %>
+
+	<% end %>
+
+</p>

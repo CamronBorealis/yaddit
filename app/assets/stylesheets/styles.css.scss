@@ -3,7 +3,9 @@
 $blue: #4683FF; // (links)
 $gray: #EAEAEA; // (heading background color)
 $lightGray: #F7F7F7; // (login page bg)
-$subtleGray: #666; // (for subtle text elements)
+$subtleGray: #A8A8A8; // (for subtle text elements)
+
+
 
 body { 
 	font-family: Arial, Helvetica, sans-serif; 
@@ -27,6 +29,16 @@ input.button {
 	width: 68px;
 	height: 31px;
 	border:0px; 
+}
+
+input.post { 
+	background-image: url('btn_post.png');  
+}
+
+#message_body {
+	width: 590px; 
+	height: 120px; 
+	margin-bottom: 20px; 
 }
 
 
@@ -120,23 +132,13 @@ div.heading {
 div.post { 
 	padding-bottom: 25px; 
 	margin-bottom: 33px;
-	border-bottom:1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5; 
 
 	h1 { margin-bottom: 6px; }
 
 	span {
 		font-size:12px; 
 		color: $subtleGray;  
-	}
-
-	input.post { 
-		background-image: url('btn_post.png');  
-	}
-
-	#message_body {
-		width: 590px; 
-		height: 120px; 
-		margin-bottom: 20px; 
 	}
 
 }
@@ -151,6 +153,56 @@ div.childPosts {
 
 	.replyButton { 
 		cursor:pointer; 
+	}
+
+}
+
+
+/* New Posts */
+
+div.newPost {
+	color:$subtleGray; 
+
+	#message_title {
+		width: 300px;
+	}
+}
+
+
+
+/* Registration */
+
+div.settings { 
+
+	h1 { 
+		padding:6px 0 15px 50px; 
+		border-bottom: 1px solid #D0D0D0; 
+		margin-bottom: 30px; 
+		background: url('logo_small.png') no-repeat 0 0; 
+	}
+
+	form { 
+		color:#6E6E6E; 
+	}
+
+	div {
+		margin-bottom: 20px; 
+
+		label {
+			float:left; 
+			width:150px;
+			text-align:right; 
+		}
+
+		input { 
+			margin-left: 30px; 
+		}
+	}
+
+	input.signup { 
+		background-image: url('btn_sign-up.png');  
+		width: 83px;
+		margin-left: 68px; 
 	}
 
 }
