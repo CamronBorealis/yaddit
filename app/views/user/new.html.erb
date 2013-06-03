@@ -2,7 +2,7 @@
 
 <%= render :partial=>'shared/errors' %>
 
-<%= form_tag("/user/create") do %>
+<%= form_tag(user_create_path) do %>
 	<table>
 		<tr>
 			<td><%= label_tag "user[first_name]", "First Name:" %></td>

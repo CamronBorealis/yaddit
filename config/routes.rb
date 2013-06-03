@@ -2,15 +2,15 @@ Yaddit::Application.routes.draw do
   root :to => "messages#list"
   
   post "session/create"
-  get "session/destroy"
-  get "session/log_in"
+  get "logout" => "session#destroy", :as=>:logout
+  get "login" => "session#log_in", :as=>:login
 
-  get 'user/register' => 'user#new'
+  get 'register' => 'user#new', :as=>:register
   post "user/create"
 
   get "messages/list"
   get "messages/new"
-  get "messages/:id" => 'messages#show'
+  get "messages/:id" => 'messages#show', :as=>:messages_show
   post "messages/create"
   post "messages/reply"
 end

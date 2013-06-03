@@ -13,7 +13,7 @@
 		<span class="replyButton">Reply</span>
 
 		<div class="replyForm">
-			<%= form_tag("/messages/reply") do %>
+			<%= form_tag(messages_reply_path) do %>
 				<%= hidden_field_tag "message[reply_to_message_id]", message_info[:id] %>
 				<%= text_area_tag "message[body]" %><br />
 				<%= submit_tag "", :class => 'button post' %>

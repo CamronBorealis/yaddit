@@ -6,7 +6,7 @@
 
 		<%= render :partial=>'shared/errors' %>
 
-		<%= form_tag("/session/create") do %>
+		<%= form_tag(session_create_path) do %>
 
 			<%= text_field_tag "credentials[email]", nil, :placeholder => 'Username or email'%>
 
@@ -17,6 +17,6 @@
 
 	</div>
 
-	<p>New? <%= link_to "Sign Up", "/user/register" %></p>	
+	<p>New? <%= link_to "Sign Up", register_path %></p>	
 
 </div>

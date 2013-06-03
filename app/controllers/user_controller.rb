@@ -13,7 +13,7 @@ class UserController < ApplicationController
     	input[:user][:id] = -1
     	action.execute input
 
-    	redirect_to '/messages/list'
+    	redirect_to messages_list_path
     rescue => e
       flash[:error] = "Error occured: " + e.message
       render 'new'

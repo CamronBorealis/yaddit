@@ -3,8 +3,8 @@ require 'test_helper'
 class SessionControllerTest < ActionController::TestCase
   test "should get create" do
     post :create, :credentials=>{:email=>"first@user.com", :password=>"password"}
-    assert_redirected_to :controller=>"messages", :action=>"list"
     assert_no_flashes
+    assert_redirected_to messages_list_path
   end
 
   test "should get destroy" do

@@ -3,7 +3,7 @@
 
 	<!-- ## Post (teaser) ## -->
 	<div class="post">
-		<h1><%= link_to message[:title], "/messages/" + message[:id].to_s %></h1>
+		<h1><%= link_to message[:title], messages_show_path(message[:id]) %></h1>
 		<span>posted by <%= user[:first_name] %> <%= user[:last_name] %></span>
 	</div>
 	

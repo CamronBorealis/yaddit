@@ -2,7 +2,7 @@
 
 <%= render :partial=>'shared/errors' %>
 
-<%= form_tag("/messages/create") do %>
+<%= form_tag(messages_create_path) do %>
 	<table>
 		<tr>
 			<td style="vertical-align:top"><%= label_tag "message[title]", "Title:" %></td>

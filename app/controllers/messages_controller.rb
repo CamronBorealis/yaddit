@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
       input[:message][:user_id] = session[:user_id]
       new_id = action.execute input
 
-      redirect_to ('/messages/' + new_id.to_s)
+      redirect_to messages_show_path(new_id)
     rescue => e
       flash[:error] = "Error occured: " + e.message
       p e.backtrace
@@ -54,6 +54,6 @@ class MessagesController < ApplicationController
     input[:message][:reply_to_message_id] = Integer(input[:message][:reply_to_message_id])
     new_id = action.execute input
 
-    redirect_to ('/messages/' + new_id.to_s)
+    redirect_to messages_show_path(new_id)
   end
 end

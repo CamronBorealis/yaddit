@@ -13,7 +13,7 @@ class SessionController < ApplicationController
 
   	if user_id
       session[:user_id] = user_id
-      redirect_to "/messages/list"
+      redirect_to messages_list_path
   	else
       flash[:error] = "That username/password combination is invalid"
       render 'log_in'
@@ -22,7 +22,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/session/log_in'
+    redirect_to login_path
   end
 
   def log_in
