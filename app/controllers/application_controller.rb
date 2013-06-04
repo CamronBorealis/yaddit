@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user
 
   def authenticate_user
-  	if session[:user_id] == nil
+  	if current_user_id == nil
   		redirect_to login_path
   	end
+  end
+
+  def current_user_id
+  	session[:user_id]
   end
 end

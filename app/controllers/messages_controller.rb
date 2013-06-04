@@ -3,6 +3,7 @@ require_relative '../../core/app/actions/show_message'
 require_relative '../../core/app/actions/add_message'
 require_relative '../../core/app/actions/reply_to_message'
 require_relative '../../core/external/message_jack'
+require_relative '../../core/external/user_message_jack'
 require_relative '../../core/app/entities/entity_factory'
 
 class MessagesController < ApplicationController
@@ -16,14 +17,21 @@ class MessagesController < ApplicationController
   end
 
   def show
-  	action = ShowMessage.new MessageJack.new, EntityFactory.new
-    input = {:id=>Integer(params[:id])}
-    result = action.execute input
-  	@messages = result[:messages]
-    @message = @messages.select{|message_data| message_data[:id] == input[:id]}.first
-    @users = result[:users]
+  	begin
+      action = ShowMessage.new MessageJack.new, UserMessageJack.new, EntityFactory.new
+      input = {:message_id=>Integer(params[:id]), :user_id=>current_user_id}
+      result = action.execute input
 
-  	render 'show'
+      @messages = result[:messages]
+      @message = @messages.select{|message_data| message_data[:id] == input[:message_id]}.first
+      @users = result[:users]
+
+      render 'show'
+    rescue => e
+      flash[:error] = "Error occured: " + e.message
+      p e.backtrace
+      redirect_to messages_list_path
+    end
   end
 
   def create
@@ -31,13 +39,12 @@ class MessagesController < ApplicationController
       action = AddMessage.new MessageJack.new, EntityFactory.new
       input = {:message=>params[:message]}
       input[:message][:id] = -1
-      input[:message][:user_id] = session[:user_id]
+      input[:message][:user_id] = current_user_id
       new_id = action.execute input
 
       redirect_to messages_show_path(new_id)
     rescue => e
       flash[:error] = "Error occured: " + e.message
-      p e.backtrace
       render 'new'
     end
   end
@@ -50,7 +57,7 @@ class MessagesController < ApplicationController
     action = ReplyToMessage.new MessageJack.new, EntityFactory.new
     input = {:message=>params[:message]}
     input[:message][:id] = -1
-    input[:message][:user_id] = session[:user_id]
+    input[:message][:user_id] = current_user_id
     input[:message][:reply_to_message_id] = Integer(input[:message][:reply_to_message_id])
     new_id = action.execute input
 

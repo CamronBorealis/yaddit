@@ -2,13 +2,14 @@ require_relative '../entities/message'
 
 class ShowMessage
 
-	def initialize message_jack, entity_factory
+	def initialize message_jack, user_message_jack, entity_factory
 		@message_jack = message_jack
+		@user_message_jack = user_message_jack
 		@entity_factory = entity_factory
 	end
 
 	def execute input
-		data = @message_jack.get_message_by_id_with_replies(input[:id])
+		data = @message_jack.get_message_by_id_with_replies(input[:message_id])
 
 	    messages = []
 	    users = []
@@ -26,7 +27,9 @@ class ShowMessage
 	       }
 	      users.push user_data
 	    end
-	    
+
+	    @user_message_jack.update_message_timestamp input[:message_id], input[:user_id]
+	    	
 	    {
 	      :messages=>messages,
 	      :users=>users
