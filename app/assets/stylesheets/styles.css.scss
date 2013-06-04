@@ -6,7 +6,6 @@ $lightGray: #F7F7F7; // (login page bg)
 $subtleGray: #A8A8A8; // (for subtle text elements)
 
 
-
 body { 
 	font-family: Arial, Helvetica, sans-serif; 
 	margin:0px;
@@ -130,8 +129,8 @@ div.heading {
 /* Threads */
 
 div.post { 
-	padding-bottom: 25px; 
-	margin-bottom: 33px;
+	padding-bottom: 19px; 
+	margin-bottom: 23px;
 	border-bottom: 1px solid #E5E5E5; 
 
 	h1 { margin-bottom: 6px; }
@@ -141,14 +140,16 @@ div.post {
 		color: $subtleGray;  
 	}
 
+	p { margin: 5px 0 9px 0; }
+
 }
 
 div.childPosts { 
-	margin-left: 25px; 
+	margin-left: 45px; 
 
 	div.reply { 
 		background: url('icon_reply.png') no-repeat 0px 6px;  
-		padding-left: 30px; 
+		padding-left: 25px; 
 	}
 
 	.replyButton { 

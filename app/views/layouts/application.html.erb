@@ -12,7 +12,7 @@
 
 	<!-- ## Heading ## -->
 	<div class="heading">
-		<h1 class="logo">Yaddit</h1>
+		<h1 class="logo"><%= link_to "Yaddit", messages_list_path %></h1>
 		<h1 id="newmessages"><%= link_to "Messages", messages_list_path %></h1>
 		<h1 id="submit"><%= link_to "New", messages_new_path %></h1>
 		<a href="#"><%= image_tag "icon_options.png", :id => "userOptionsBtn" %></a>
