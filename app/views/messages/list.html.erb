@@ -3,7 +3,15 @@
 
 	<!-- ## Post (teaser) ## -->
 	<div class="post">
-		<h1><%= link_to message[:title], messages_show_path(message[:id]) %></h1>
+		<% message_last_seen = @last_seen.select{|last_seen| last_seen[:message_id] == message[:id]}.first %>
+		<% message_last_activity = @last_activity.select{|last_activity| last_activity[:message_id] == message[:id]}.first %>
+		<h1>
+			<% if !message_last_seen || (message_last_activity && message_last_seen[:last_seen] <= message_last_activity[:last_activity])  %>
+				<%= link_to "[NEW] #{message[:title]}", messages_show_path(message[:id]) %>
+			<% else %>
+				<%= link_to message[:title], messages_show_path(message[:id]) %>
+			<% end %>
+		</h1>
 		<span>posted by <%= user[:first_name] %> <%= user[:last_name] %></span>
 	</div>
 	

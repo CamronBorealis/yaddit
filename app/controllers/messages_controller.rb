@@ -12,6 +12,8 @@ class MessagesController < ApplicationController
   	data = action.execute current_user_id
     @messages = data[:messages]
     @users = data[:users]
+    @last_seen = data[:last_seen]
+    @last_activity = data[:last_activity]
 
   	render 'list'
   end
