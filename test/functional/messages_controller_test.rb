@@ -15,6 +15,12 @@ class MessagesControllerTest < ActionController::TestCase
   	assert_no_flashes
   end
 
+  test "should show message and save timestamp" do
+    login
+    get :show, :id=>1
+    assert_equal UserMessageModel.where("message_id = ? and user_id = ?", 1, 1).count, 1
+  end
+
   test "should show new message form" do
   	login
   	get :new

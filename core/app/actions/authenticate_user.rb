@@ -8,7 +8,8 @@ class AuthenticateUser
 	def execute input
 		credentials = input[:credentials]
 		data = @jack.get_by_email credentials[:email]
-		if data == nil
+
+		if data[:user] == nil
 			nil
 		else
 			user = @entity_factory.generate_user data[:user]

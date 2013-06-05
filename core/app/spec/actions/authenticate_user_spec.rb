@@ -38,7 +38,7 @@ describe AuthenticateUser do
 
 	it 'should return denied message on no email found' do
 		input = {:credentials=>{:email=>"test@test.com", :password=>"password"}}
-		user_data = nil
+		user_data = {:user=>nil}
 		@jack.should_receive(:get_by_email).with(input[:credentials][:email]).and_return(user_data)
 		result = @action.execute input
 		result.should eq nil

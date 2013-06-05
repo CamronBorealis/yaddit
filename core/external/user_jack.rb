@@ -2,7 +2,7 @@ require_relative '../app/contracts/user_jack_contract'
 
 class UserJack < UserJackContract
 	def get_by_email email
-		users = UserModel.where(:email=>email).select{|item| item.attributes}
+		users = UserModel.where(:email=>email).collect{|item| item.attributes.symbolize_keys}
 
 		{
 			:user => users.first
