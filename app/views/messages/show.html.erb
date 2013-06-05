@@ -1,7 +1,5 @@
 <!-- ## Post (full) ## -->
 
-<div><%= link_to "Back to messages", "list"%></div>
-
 <div class="post">
 
 	<h1><%= @message[:title] %></h1>
@@ -23,3 +21,5 @@
 </div>
 
 <%= render :partial=>'reply', :locals=>{:parent_message_id=>@message[:id]} %>
+
+<div><%= link_to "Back to messages", "list"%></div>
