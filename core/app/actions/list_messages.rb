@@ -8,11 +8,12 @@ class ListMessages
     @entity_factory = entity_factory
   end
 
-  def execute
-    data = @message_jack.list_latest_root_messages
+  def execute user_id
+    data = @message_jack.list_latest_root_messages user_id
 
     messages = []
     users = []
+    last_seen = []
 
     data[:messages].each do |info|
       message = @entity_factory.generate_message info
@@ -27,10 +28,19 @@ class ListMessages
        }
       users.push user_data
     end
+
+    data[:last_seen].each do |info|
+      last_seen_data = {
+        :id=>info[:message_id],
+        :last_seen => info[:last_seen]
+       }
+      last_seen.push last_seen_data
+    end
     
     {
       :messages=>messages,
-      :users=>users
+      :users=>users,
+      :last_seen=>last_seen
     }
     
   end

@@ -9,7 +9,7 @@ require_relative '../../core/app/entities/entity_factory'
 class MessagesController < ApplicationController
   def list
   	action = ListMessages.new MessageJack.new, EntityFactory.new
-  	data = action.execute
+  	data = action.execute current_user_id
     @messages = data[:messages]
     @users = data[:users]
 
