@@ -5,11 +5,13 @@ class MessageJack < MessageJackContract
 		messages = MessageModel.where(:root_message_id => nil).collect{|item| item.attributes.symbolize_keys}
 		users = UserModel.where(:id=> messages.map{|message| message[:user_id]}).collect{|item| item.attributes.symbolize_keys}
 		last_seen = UserMessageModel.where(:message_id=>messages.map{|message| message[:id]}).collect{|item| item.attributes.symbolize_keys}
+		last_activity = MessageModel.where(:root_message_id=>messages.map{|message| message[:id]}).maximum(:created_at, :group=>:root_message_id).collect{|key, value| {:message_id=>key, :last_activity=>value}}
 
 		{
 			:messages => messages,	
 			:users => users,
-			:last_seen => last_seen
+			:last_seen => last_seen,
+			:last_activity => last_activity
 		}
 	end
 

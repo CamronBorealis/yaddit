@@ -16,7 +16,8 @@ describe ListMessages do
 		{
 			:messages=>[message_data],
 			:users=>[{:id=>1, :first_name=>"F", :last_name=>"L"}],
-			:last_seen=>[{:message_id=>1}]
+			:last_seen=>[{:message_id=>1}],
+			:last_activity=>[{:message_id=>1}]
 		})
 		
 		result = @action.execute 1
@@ -24,6 +25,7 @@ describe ListMessages do
 		result[:messages][0].should eq message_data
 		result[:users][0].should eq :id=>1, :first_name=>"F", :last_name=>"L"
 		result[:last_seen].count.should eq 1
+		result[:last_activity].count.should eq 1
 	end
 
 end

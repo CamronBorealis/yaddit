@@ -14,6 +14,7 @@ class ListMessages
     messages = []
     users = []
     last_seen = []
+    last_activity = []
 
     data[:messages].each do |info|
       message = @entity_factory.generate_message info
@@ -31,16 +32,25 @@ class ListMessages
 
     data[:last_seen].each do |info|
       last_seen_data = {
-        :id=>info[:message_id],
+        :message_id=>info[:message_id],
         :last_seen => info[:last_seen]
        }
       last_seen.push last_seen_data
+    end
+
+    data[:last_activity].each do |info|
+      last_activity_data = {
+        :message_id=>info[:message_id],
+        :last_activity => info[:last_activity]
+       }
+      last_activity.push last_activity_data
     end
     
     {
       :messages=>messages,
       :users=>users,
-      :last_seen=>last_seen
+      :last_seen=>last_seen,
+      :last_activity=>last_activity
     }
     
   end
