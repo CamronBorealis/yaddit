@@ -8,7 +8,7 @@
 
 	<%= render :partial=>'shared/errors' %>
 
-	<p><%= @message[:body] %></p>
+	<p><%= @message[:body].gsub(/\n/, '<br/>').html_safe %></p>
 
 	<br />
 	

@@ -7,7 +7,7 @@
 		<% user = @users.select{|s| s[:id] == message_info[:user_id]}.first; %>
 		<span>by <%= user[:first_name] %> <%= user[:last_name] %></span>
 
-		<p><%= message_info[:body] %></p>
+		<p><%= message_info[:body].gsub(/\n/, '<br/>').html_safe %></p>
 
 
 		<span class="replyButton">Reply</span>
