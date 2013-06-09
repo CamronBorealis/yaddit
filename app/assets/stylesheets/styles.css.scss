@@ -135,6 +135,12 @@ div.post {
 
 	h1 { margin-bottom: 6px; }
 
+	h1 a.new { 
+		font-weight: bold;
+		padding-right: 28px;
+		background: url('icon_new.png') no-repeat right top; 
+	}
+
 	span {
 		font-size:12px; 
 		color: $subtleGray;  
