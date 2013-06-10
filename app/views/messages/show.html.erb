@@ -15,7 +15,7 @@
 	<%= form_tag(messages_reply_path) do %>
 		<%= hidden_field_tag "message[reply_to_message_id]", @message[:id] %>
 		<%= text_area_tag "message[body]" %><br />
-		<%= submit_tag "", :class => 'button post' %>
+		<%= submit_tag "Post", :class => 'button' %>
 	<%end%>
 
 </div>

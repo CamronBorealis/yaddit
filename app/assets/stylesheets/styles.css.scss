@@ -25,18 +25,29 @@ h1 {
 }
 
 input.button {
-	width: 68px;
-	height: 31px;
-	border:0px; 
+	padding: 2px 9px;
+	display:inline-block;
+
+	font-family: 'PT Sans', Arial, sans-serif;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	font-size:17px; 
+	text-transform: uppercase; 
+	color:#838383;
+   	text-shadow: 1px 1px rgba(255, 255, 255, 0.75);	
+
+   	background-image: linear-gradient(to bottom, #F7F7F7, #DFDFDF);	
+	background-color: #F7F7F7; 
+	border-radius: 6px; 
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #C4C4C4;  	
 }
 
-input.post { 
-	background-image: url('btn_post.png');  
+input.button:hover {
+	background-image: linear-gradient(to bottom, #EAEBED, #D6D6D8);	
 }
 
-input.save {
-	background-image: url('btn_save.png');  
-}
 
 #message_body {
 	width: 590px; 
@@ -75,10 +86,6 @@ div.login {
 
 		#credentials_password { 
 			width: 124px; 
-		}
-
-		.login { 
-			background-image: url('btn_login.png');  
 		}
 	}
 	p { 
@@ -211,9 +218,7 @@ div.settings {
 	}
 
 	input.signup { 
-		background-image: url('btn_sign-up.png');  
-		width: 83px;
-		margin-left: 68px; 
+		margin-left: 58px; 
 	}
 
 }
