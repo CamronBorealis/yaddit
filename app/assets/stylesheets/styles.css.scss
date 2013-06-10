@@ -223,6 +223,11 @@ div.settings {
 
 }
 
+/* Admin page */
+
+div.table {display: table;}
+.row {display: table-row;}
+.cell {display: table-cell; padding:3px; vertical-align:top;}
 
 div.admin {
 
@@ -242,4 +247,45 @@ div.admin {
 			color: $subtleGray;
 		}
 	}
+
+	div.themes {
+
+		div input { margin-left: 0px; }
+
+		div.descrip { 
+			color:$subtleGray; 
+			margin-left:10px;
+		}
+
+		div.color {
+			height:21px;
+			width:21px;
+			border: 1px solid #C4C4C4; 
+			margin: 0 4px 0 0; 
+		}
+
+		//Themes:
+		////subtle:
+		div.gray {
+			background-color: $gray; 
+		}
+		div.white { 
+			background-color: white; 
+		}
+
+		////hacker:
+		div.orange {
+			background-color:#FF6600; 
+		}
+		div.cream { 
+			background-color: #F6F6EF; 
+		}
+
+		////social:
+		div.blue {
+			background-color: #416C95; 			
+		}
+
+	}
+	input.button { margin-left: 0px; }
 }
