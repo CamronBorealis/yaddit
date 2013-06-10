@@ -13,4 +13,6 @@ Yaddit::Application.routes.draw do
   get "messages/:id" => 'messages#show', :as=>:messages_show
   post "messages/create"
   post "messages/reply"
+
+  match "/admin" => 'pages#admin'
 end
